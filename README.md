@@ -40,6 +40,10 @@ Install pygame:
 - Press SPACE to launch
 - Press "R" to reset
 
+## Screenshot
+
+![Projectile Simulator](screenshot.png)
+
 ## Technologies Used
 
 - Python
