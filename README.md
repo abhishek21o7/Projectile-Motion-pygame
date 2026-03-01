@@ -42,7 +42,7 @@ Install pygame:
 
 ## Screenshot
 
-![Projectile Simulator](screenshot.png)
+![Projectile Simulator](Screenshot.png)
 
 ## Technologies Used
 
