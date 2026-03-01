@@ -17,8 +17,8 @@ angle_value = ""
 
 inputV_rect = pygame.Rect(screen_width - 120, 5, 100, 30)
 inputA_rect = pygame.Rect(screen_width - 120, 42, 100, 30)
-color_active = pygame.Color((100, 200, 140))
-color_passive = pygame.Color((80, 120, 95))
+color_active = pygame.Color((88, 196, 221))
+color_passive = pygame.Color((40, 80, 95))
 color = color_passive
 
 active_v = False
@@ -77,7 +77,7 @@ radius = 20
 
 while True:
     dt = clock.tick(60)/1000
-    screen.fill((0, 0, 0))
+    screen.fill((12, 12, 15))
     
     #EVENT LOOP
 #----------------------------------------------------------------------------------------------------------
@@ -164,7 +164,7 @@ while True:
     x_count = 0
     for x in range(origin_x, screen_width, GRID):
         value = x_count * METERS_PER_GRID
-        text = font.render(str(value), True, (120, 150, 130))
+        text = font.render(str(value), True, (200, 200, 200))#NUMBERINGS
         if value % 20 == 0:
             screen.blit(text, (x-5, origin_y + 5))
         x_count += 1
@@ -172,20 +172,20 @@ while True:
     y_count = 0
     for y in range(origin_y, 0, -GRID):
         value = y_count * METERS_PER_GRID
-        text = font.render(str(value), True, (120, 150, 130))
+        text = font.render(str(value), True, (200, 200, 200))#NUMBERINGS
         if value % 20 == 0:
             screen.blit(text, (origin_x - 30, y - 5))
         y_count += 1
 
     
     for x in range(60, screen_width, 20):
-        pygame.draw.line(screen, (30, 50, 30), (x, 0),(x, screen_height-40), 2)
+        pygame.draw.line(screen, (68, 68, 68), (x, 0),(x, screen_height-40), 2)#GRIDS
     for y in range(20, screen_height-40, 20):
-        pygame.draw.line(screen, (30, 50, 30), (40, y),(screen_width, y), 2)
+        pygame.draw.line(screen, (68, 68, 68), (40, y),(screen_width, y), 2)    #GRIDS
     
      
     if len(path) > 1:
-        pygame.draw.lines(screen, (100, 200, 140), False, path, 2)
+        pygame.draw.lines(screen, (88, 196, 221), False, path, 2)
     
     if landed and p == False:
         print("*" * 80)    
@@ -220,17 +220,17 @@ while True:
         colorA = color_passive
     
     
-    circle = pygame.draw.circle(screen, (140, 220, 170), (int(screen_x), int(screen_y)), radius, 0 )
-    pygame.draw.line(screen, (180, 220, 190), (40, 0),(40, screen_height ), 2)
-    pygame.draw.line(screen, (180, 220, 190), (0, screen_height-40),(screen_width, screen_height-40), 2)
+    circle = pygame.draw.circle(screen, (255, 214, 70), (int(screen_x), int(screen_y)), radius, 0 )
+    pygame.draw.line(screen, (136, 136, 136), (40, 0),(40, screen_height ), 2)                          #Y AXIS
+    pygame.draw.line(screen, (136, 136, 136), (0, screen_height-40),(screen_width, screen_height-40), 2)#X AXIS
     
     text_v = base_font.render(velocity_label, True, (200, 220, 210))
     text_a = base_font.render(angle_label, True, (200, 220, 210))
     screen.blit(text_v, (screen_width-250, 10))
     screen.blit(text_a, (screen_width-185, 42))
     
-    text_v_value = base_font.render(velocity_value, True, (100, 200, 140))
-    text_a_value = base_font.render(angle_value, True, (100, 200, 140))
+    text_v_value = base_font.render(velocity_value, True, (88, 196, 221))
+    text_a_value = base_font.render(angle_value, True, (88, 196, 221))
     
     screen.blit(text_v_value, (inputV_rect.x + 5, inputV_rect.y + 5))
     screen.blit(text_a_value, (inputA_rect.x + 5, inputA_rect.y + 5))
@@ -239,8 +239,4 @@ while True:
     pygame.draw.rect(screen, colorA, inputA_rect, 2)
     
     pygame.display.flip()
-
-
-
-
 
